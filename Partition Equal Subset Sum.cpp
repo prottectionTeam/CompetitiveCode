@@ -1,12 +1,6 @@
 class Solution {
 public:
-    bool canPartition(vector<int>& nums) {
-        int total = accumulate(nums.begin(), nums.end(),0);
-        if(total%2 != 0)
-            return false;
-        
-        int len = nums.size();
-        int target = total/2;
+    bool isSubsetSum(vector<int>& nums, int target, int len) {
         vector<vector<int>> dp(len+1, vector<int>(target+1, -1));
         
         for(int i=1; i<=target; i++)
@@ -25,5 +19,15 @@ public:
         }
         
         return dp[len][target];
+    }
+    
+    bool canPartition(vector<int>& nums) {
+        int total = accumulate(nums.begin(), nums.end(),0);
+        if(total%2 != 0)
+            return false;
+        
+        int len = nums.size();
+        int target = total/2;
+        return isSubsetSum(nums, target, len);
     }
 };
