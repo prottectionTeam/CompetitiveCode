@@ -20,7 +20,7 @@ public:
         inorder(root -> right, res);
     }
     
-    int inorderTraversal(TreeNode* root) {
+    vector<int> inorderTraversal(TreeNode* root) {
         vector<int> res;
         inorder(root,res);
         return res;
