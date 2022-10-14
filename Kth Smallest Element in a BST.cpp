@@ -21,7 +21,7 @@ public:
         
         count--;
         if (count == 0) {
-            res = root->left;
+            res = root->val;
             return;
         }
             
